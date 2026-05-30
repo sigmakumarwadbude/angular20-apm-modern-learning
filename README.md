@@ -1,5 +1,29 @@
 # angular20-apm-modern-learning
 Modern Angular 20 learning journey based on APM application using Standalone Components, Signals, Docker and enterprise architecture.
+## Architecture Overview
+
+This project uses a modular, enterprise-grade architecture pattern designed around Standalone Components, feature boundaries, and reactive unidirectional data flow powered by Angular Signals.
+
+For a detailed breakdown of core patterns, codebase layout, and reactive flow diagrams, please refer to the dedicated **[ARCHITECTURE.md](ARCHITECTURE.md)** guide.
+
+```mermaid
+graph TD
+    subgraph Shell [Application Shell]
+        App[App Shell] --> Routes[Global Routes]
+    end
+
+    subgraph HomeFeature [Home / Dashboard Feature]
+        Routes -->|Lazy Load| FR[Feature Routes]
+        FR --> Page[Page Component - Smart]
+        Page --> Serv[Service - State Store]
+        Page --> Comp[Presentational Components - Dumb]
+        Serv -.->|Signals Reactive Stream| Page
+    end
+
+    subgraph DevEnv [Development Environment]
+        Dev([Developer Workspace]) <-->|Volume Mount| Docker[Docker Container Dev Server]
+    end
+```
 
 ## Setup Instructions
 
