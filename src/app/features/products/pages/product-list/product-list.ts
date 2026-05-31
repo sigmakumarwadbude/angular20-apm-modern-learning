@@ -1,8 +1,10 @@
-import { Component, computed, signal } from '@angular/core';
-import { PRODUCTS } from '../../data/products';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Product } from '../../models/product';
+import { Product as ProductService } from '../../services/product';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-product-list',
@@ -11,13 +13,20 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductList {
   protected readonly pageTitle = 'Products';
-  products = PRODUCTS;
+
+  protected readonly productService = inject(ProductService);
+  
+  products = toSignal(
+    this.productService.getProducts(),
+    { initialValue: []}
+  );
+
   showImage = true;
 
   listFilter = signal('');
 
   filteredProducts = computed(() =>
-  this.products.filter(product =>
+  this.products().filter(product =>
     product.productName
       .toLowerCase()
       .includes(this.listFilter().toLowerCase())
