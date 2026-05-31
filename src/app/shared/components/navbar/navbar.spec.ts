@@ -28,4 +28,10 @@ describe('Navbar', () => {
 
     expect(compiled.textContent).toContain('Home');
   });
+
+  it('should render Products link', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.textContent).toContain('Products');
+  });
 });

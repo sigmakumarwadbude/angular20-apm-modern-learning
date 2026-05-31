@@ -1,0 +1,109 @@
+<div class="bg-white shadow-md rounded-lg overflow-hidden">
+    <!-- Header -->
+    <div class="bg-indigo-600 text-white px-6 py-4">
+        <h2 class="text-xl font-semibold">{{ pageTitle }}</h2>
+    </div>
+
+    <!-- Body -->
+    <div class="p-6">
+        <!-- Filter Section -->
+        <div class="flex flex-col md:flex-row md:items-center gap-4 mb-4">
+            <label class="font-medium text-gray-700 md:w-32">
+                Filter by:
+            </label>
+
+            <input type="text"
+                class="w-full md:w-80 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                [ngModel]="listFilter()" (ngModelChange)="listFilter.set($event)" />
+        </div>
+
+        <!-- Filtered By -->
+        @if(listFilter()) {
+        <div class="mb-4">
+            <h4 class="text-lg font-medium text-gray-700">
+                Filtered by:
+                <span class="text-indigo-600">{{ listFilter() }}</span>
+            </h4>
+        </div>
+        }
+
+        <!-- Products Table -->
+        <div class="overflow-x-auto">
+            @if(products().length) {
+            <table class="min-w-full divide-y divide-gray-200 border border-gray-200 rounded-lg">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-4 py-3 text-left">
+                            <button class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition"
+                                (click)="toggleImage()">
+                                {{ showImage ? 'Hide' : 'Show' }} Image
+                            </button>
+                        </th>
+
+                        <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+                            Product
+                        </th>
+
+                        <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+                            Code
+                        </th>
+
+                        <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+                            Available
+                        </th>
+
+                        <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+                            Price
+                        </th>
+
+                        <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+                            5 Star Rating
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody class="bg-white divide-y divide-gray-100">
+                    @for(product of filteredProducts(); track product.id) {
+                    <tr class="hover:bg-gray-50">
+
+                        <td class="px-4 py-3">
+                            @if(showImage) {
+                            <img [src]="product.imageUrl" [title]="product.productName"
+                                class="w-12 h-12 object-cover rounded border border-gray-200" />
+                            }
+                        </td>
+
+                        <td class="px-4 py-3">
+                            <a [routerLink]="['/products', product.id]"
+                                class="text-indigo-600 hover:text-indigo-800 hover:underline">
+                                {{ product.productName }}
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-700">
+                            {{ product.productCode | lowercase }}
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-700">
+                            {{ product.releaseDate }}
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-700">
+                            {{ product.price | currency:'USD':'symbol':'1.2-2' }}
+                        </td>
+
+                        <td class="px-4 py-3">
+
+                        </td>
+
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            } @else {
+                <p class="text-gray-500">No products available.</p>
+            }
+        </div>
+
+    </div>
+</div>
