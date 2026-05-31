@@ -4,9 +4,16 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+  template: `
+  <div class="min-h-screen bg-slate-100">
+
+    <main class="container mx-auto p-6">
+
+      <router-outlet />
+
+    </main>
+
+  </div>
+  `
 })
-export class App {
-  protected readonly title = signal('angular20-apm-modern-learning');
-}
+export class App {}

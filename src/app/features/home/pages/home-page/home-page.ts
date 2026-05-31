@@ -3,6 +3,7 @@ import { HomeService } from '../../services/home.service';
 import { CommonModule } from '@angular/common';
 import { DashboardCard } from '../../components/dashboard-card/dashboard-card';
 import { QuickAction } from '../../components/quick-action/quick-action';
+import { PAGE_SUBTITLE, PAGE_TITLE } from '../../constants/home.constants';
 
 @Component({
   selector: 'app-home-page',
@@ -12,7 +13,9 @@ import { QuickAction } from '../../components/quick-action/quick-action';
   templateUrl: './home-page.html',
 })
 export class HomePage {
-private homeService = inject(HomeService);
+  protected readonly pageTtitle = PAGE_TITLE;
+  protected readonly pageSubTitle = PAGE_SUBTITLE;
+  private homeService = inject(HomeService);
 
   stats = this.homeService.stats;
 }
