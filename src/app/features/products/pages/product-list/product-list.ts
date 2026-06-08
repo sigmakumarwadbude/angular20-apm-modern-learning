@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../../models/product';
-import { Product as ProductService } from '../../services/product';
+import { ProductService } from '../../services/product';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
