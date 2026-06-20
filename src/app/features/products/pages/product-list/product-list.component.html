@@ -1,126 +1,119 @@
 <div class="p-6">
 
-  <h2
-    class="mb-2 text-3xl font-bold tracking-tight text-gray-900">
+    <h2 class="mb-2 text-3xl font-bold tracking-tight text-gray-900">
 
-    {{ pageTitle }}
+        {{ pageTitle }}
 
-  </h2>
+    </h2>
 
-  <p class="mb-6 text-gray-500">
-    Browse and search available products.
-  </p>
+    <p class="mb-6 text-gray-500">
+        Browse and search available products.
+    </p>
 
-  <div
-    class="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div class="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
 
-    <app-product-search
-      [searchTerm]="searchTerm()"
-      (searchChange)="onSearchChange($event)">
-    </app-product-search>
+        <app-product-search [searchTerm]="searchTerm()" (searchChange)="onSearchChange($event)">
+        </app-product-search>
 
-    <span
-      class="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-700">
+        <span class="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-700">
 
-      {{ filteredProducts().length }}
-      of
-      {{ products().length }}
-      products
+            {{ filteredProducts().length }}
+            of
+            {{ products().length }}
+            products
 
-    </span>
-
-  </div>
-
-  @if (filteredProducts().length === 0) {
-
-    <div
-      class="rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 p-8 text-center">
-
-      <div class="mb-2 text-4xl">
-        🔍
-      </div>
-
-      <h3 class="font-medium text-gray-700">
-        No products found
-      </h3>
-
-      <p class="mt-1 text-sm text-gray-500">
-        Try a different search term.
-      </p>
+        </span>
 
     </div>
 
-  } @else {
+    @if (filteredProducts().length === 0) {
+
+    <div class="rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 p-8 text-center">
+
+        <div class="mb-2 text-4xl">
+            🔍
+        </div>
+
+        <h3 class="font-medium text-gray-700">
+            No products found
+        </h3>
+
+        <p class="mt-1 text-sm text-gray-500">
+            Try a different search term.
+        </p>
+
+    </div>
+
+    } @else {
 
     <div class="overflow-x-auto">
 
-      <table class="min-w-full border">
+        <table class="min-w-full border">
 
-        <thead>
-          <tr>
-            <th class="border p-2">Image</th>
-            <th class="border p-2">Name</th>
-            <th class="border p-2">Code</th>
-            <th class="border p-2">Available</th>
-            <th class="border p-2">Price</th>
-            <th class="border p-2">5 Star Rating</th>
-          </tr>
-        </thead>
+            <thead>
+                <tr>
+                    <th class="border p-2">Image</th>
+                    <th class="border p-2">Name</th>
+                    <th class="border p-2">Code</th>
+                    <th class="border p-2">Available</th>
+                    <th class="border p-2">Price</th>
+                    <th class="border p-2">5 Star Rating</th>
+                </tr>
+            </thead>
 
-        <tbody>
+            <tbody>
 
-          @for (
-            product of filteredProducts();
-            track product.productId
-          ) {
+                @for (
+                product of filteredProducts();
+                track product.productId
+                ) {
 
-            <tr>
+                <tr>
 
-              <td class="border p-2">
+                    <td class="border p-2">
 
-                <div
-                  class="flex items-center justify-center">
+                        <div class="flex items-center justify-center">
 
-                  <img
-                    [src]="product.imageUrl"
-                    [title]="product.productName"
-                    [alt]="product.productName"
-                    class="w-16 rounded-md object-contain" />
+                            <img [src]="product.imageUrl" [title]="product.productName" [alt]="product.productName"
+                                class="w-16 rounded-md object-contain" />
 
-                </div>
+                        </div>
 
-              </td>
+                    </td>
 
-              <td class="border p-2">
-                {{ product.productName }}
-              </td>
+                    <td class="border p-2">
+                        <a class="text-blue-600 hover:underline" [routerLink]="[
+      '/products', product.productId]">
+                            {{ product.productName }}
+                        </a>
+                    </td>
 
-              <td class="border p-2">
-                {{ product.productCode }}
-              </td>
+                    <td class="border p-2">
+                        {{ product.productCode }}
+                    </td>
 
-              <td class="border p-2">
-                {{ product.releaseDate }}
-              </td>
+                    <td class="border p-2">
+                        {{ product.releaseDate }}
+                    </td>
 
-              <td class="border p-2">
-                {{ product.price | currency }}
-              </td>
+                    <td class="border p-2">
+                        {{ product.price | currency }}
+                    </td>
 
-              <td class="border p-2">
-                {{ product.starRating }}
-              </td>
+                    <td class="border p-2">
+                        {{ product.starRating }}
+                    </td>
 
-            </tr>
+                </tr>
 
-          }
+                }
 
-        </tbody>
+            </tbody>
 
-      </table>
+        </table>
 
     </div>
 
-  }
+    }
 
 </div>

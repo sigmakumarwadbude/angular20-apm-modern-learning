@@ -1,0 +1,66 @@
+@if (product(); as selectedProduct) {
+
+<div class="mx-auto max-w-4xl p-6">
+
+    <button class="mb-6 rounded bg-gray-100 px-4 py-2 hover:bg-gray-200" (click)="onBack()">
+
+        ← Back
+
+    </button>
+
+    <div class="rounded-xl border bg-white p-6 shadow-sm">
+
+        <div class="grid gap-6 md:grid-cols-2">
+
+            <div>
+
+                <img [src]="selectedProduct.imageUrl" [alt]="selectedProduct.productName" class="w-full rounded-lg" />
+
+            </div>
+
+            <div>
+
+                <h2 class="mb-4 text-3xl font-bold">
+
+                    {{ selectedProduct.productName }}
+
+                </h2>
+
+                <div class="space-y-3">
+
+                    <p>
+                        <strong>Code:</strong>
+                        {{ selectedProduct.productCode }}
+                    </p>
+
+                    <p>
+                        <strong>Release Date:</strong>
+                        {{ selectedProduct.releaseDate }}
+                    </p>
+
+                    <p>
+                        <strong>Price:</strong>
+                        {{ selectedProduct.price | currency }}
+                    </p>
+
+                    <p>
+                        <strong>Rating:</strong>
+                        {{ selectedProduct.starRating }}
+                    </p>
+
+                    <p>
+                        <strong>Description:</strong>
+                        {{ selectedProduct.description }}
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+}
