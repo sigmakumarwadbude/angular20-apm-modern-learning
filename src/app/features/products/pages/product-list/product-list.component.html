@@ -1,0 +1,48 @@
+<div class="p-6">
+    <h2 class="text-2xl font-bold mb-4">
+        {{pageTitle}}
+    </h2>
+
+    <table class="min-w-full border">
+        <thead>
+            <tr>
+                <th class="border p-2">Image</th>
+                <th class="border p-2">Name</th>
+                <th class="border p-2">Code</th>
+                <th class="border p-2">Available</th>
+                <th class="border p-2">Price</th>
+                <th class="border p-2">5 Star Rating</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (product of products(); track product.productId) {
+            <tr>
+                <td class="border p-2">
+                    <div class="flex justify-center items-center">
+                        <img [src]="product.imageUrl" [title]="product.productName" [alt]="product.productName"
+                            class="w-20 m-2 rounded object-cover" />
+                    </div>
+                </td>
+                <td class="border p-2">
+                    <a [routerLink]="['/products', product.productId]"> {{ product.productName }} </a>
+                </td>
+
+                <td class="border p-2">
+                    {{ product.productCode }}
+                </td>
+                <td class="border p-2">
+                    {{ product.releaseDate }}
+                </td>
+                <td class="border p-2">
+                    {{ product.price | currency }}
+                </td>
+                <td class="border p-2 items-center">
+                    <div class="flex justify-center items-center">
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
