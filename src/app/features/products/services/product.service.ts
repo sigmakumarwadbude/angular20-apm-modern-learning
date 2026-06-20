@@ -1,5 +1,7 @@
+import { Injectable } from '@angular/core';
 import { IProduct } from '../models/product.model';
 
+@Injectable({ providedIn: 'root' })
 export class ProductService {
   products: IProduct[] = [
     {
@@ -10,7 +12,7 @@ export class ProductService {
       description: 'Leaf rake with 48-inch wooden handle.',
       price: 19.95,
       starRating: 3.2,
-      imageUrl: 'assets/images/leaf_rake.png',
+      imageUrl: 'images/leaf_rake.png',
     },
   ];
 
