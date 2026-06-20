@@ -3,6 +3,22 @@
         {{pageTitle}}
     </h2>
 
+    <div class="mb-4 flex items-center justify-between">
+        <app-product-search [searchTerm]="searchTerm()" (searchChange)="onSearchChange($event)">
+        </app-product-search>
+
+        <span class="text-sm text-gray-500">
+            {{ filteredProducts().length }}
+            of
+            {{ products().length }}
+            products
+        </span>
+    </div>
+    @if (filteredProducts().length === 0) {
+    <div class="rounded-lg border border-dashed p-8 text-center text-gray-500">
+        No products found matching your search.
+    </div>
+    } @else {
     <table class="min-w-full border">
         <thead>
             <tr>
@@ -16,7 +32,7 @@
         </thead>
 
         <tbody>
-            @for (product of products(); track product.productId) {
+            @for (product of filteredProducts(); track product.productId) {
             <tr>
                 <td class="border p-2">
                     <div class="flex justify-center items-center">
@@ -45,4 +61,6 @@
             }
         </tbody>
     </table>
+    }
+
 </div>
