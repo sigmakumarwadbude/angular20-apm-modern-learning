@@ -550,26 +550,15 @@ Benefits:
 ## Signals Architecture
 
 ```mermaid
-graph LR
+graph TD
 
-    classDef source fill:#faf5ff,stroke:#9333ea,stroke-width:2px;
-    classDef signal fill:#dbeafe,stroke:#2563eb,stroke-width:2px;
-    classDef computed fill:#dcfce7,stroke:#16a34a,stroke-width:2px;
-    classDef view fill:#fef9c3,stroke:#ca8a04,stroke-width:2px;
+    Products["products<br/>signal"] --> Filtered
 
-    Products[products()]:::source
+    Search["searchTerm<br/>signal"] --> Filtered
 
-    Search[searchTerm()]:::signal
+    Filtered["filteredProducts<br/>computed"] --> UI
 
-    Computed[filteredProducts()]:::computed
-
-    View[Product List UI]:::view
-
-    Products --> Computed
-
-    Search --> Computed
-
-    Computed --> View
+    UI["Product List UI"]
 ```
 
 ---
