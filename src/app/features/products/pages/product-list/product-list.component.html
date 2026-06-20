@@ -89,7 +89,7 @@
                     </td>
 
                     <td class="border p-2">
-                        {{ product.productCode }}
+                        {{ product.productCode | convertToSpaces:'-'}}
                     </td>
 
                     <td class="border p-2">
@@ -101,7 +101,8 @@
                     </td>
 
                     <td class="border p-2">
-                        {{ product.starRating }}
+                        <pm-star [rating]="product.starRating" (ratingClicked)="onRatingClicked($event)">
+                        </pm-star>
                     </td>
 
                 </tr>

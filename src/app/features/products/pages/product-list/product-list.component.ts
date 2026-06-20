@@ -3,11 +3,13 @@ import { ProductService } from '../../services/product.service';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductSearchComponent } from '../../components/product-search/product-search.component';
+import { StarComponent } from '../../../../shared/components/star/star.component';
+import { ConvertToSpacesPipe } from '../../../../shared/pipes/convert-to-spaces.pipe';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [RouterLink, CommonModule, ProductSearchComponent],
+  imports: [RouterLink, CommonModule, ProductSearchComponent, StarComponent, ConvertToSpacesPipe],
   templateUrl: './product-list.component.html',
 })
 export class ProductListComponent {
@@ -23,5 +25,9 @@ export class ProductListComponent {
 
   onSearchChange(value: string): void {
     this.searchTerm.set(value);
+  }
+
+  onRatingClicked(message: string): void {
+    console.log(message);
   }
 }
