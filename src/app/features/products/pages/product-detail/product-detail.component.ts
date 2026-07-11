@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from '../../models/product.model';
 import { ProductService } from '../../services/product.service';
@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-product-detail',
   standalone: true,
   imports: [CommonModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './product-detail.component.html',
 })
 export class ProductDetailComponent implements OnInit {

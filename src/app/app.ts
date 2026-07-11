@@ -1,10 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './shared/components/navbar/navbar';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Navbar],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
   <div class="min-h-screen bg-slate-100">
     <app-navbar />

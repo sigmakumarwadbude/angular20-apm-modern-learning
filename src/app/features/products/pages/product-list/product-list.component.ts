@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -10,6 +10,7 @@ import { ConvertToSpacesPipe } from '../../../../shared/pipes/convert-to-spaces.
   selector: 'app-product-list',
   standalone: true,
   imports: [RouterLink, CommonModule, ProductSearchComponent, StarComponent, ConvertToSpacesPipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './product-list.component.html',
 })
 export class ProductListComponent {
