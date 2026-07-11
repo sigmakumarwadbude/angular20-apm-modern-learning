@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'pm-star',
@@ -13,6 +13,7 @@ import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core
       </div>
     </div>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: [
     `
       .crop {
