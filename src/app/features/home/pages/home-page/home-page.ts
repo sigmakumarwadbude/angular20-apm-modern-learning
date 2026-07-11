@@ -8,7 +8,6 @@ import { PAGE_SUBTITLE, PAGE_TITLE } from '../../constants/home.constants';
 @Component({
   selector: 'app-home-page',
   imports: [DashboardCard, QuickAction],
-  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './home-page.html',
 })
 export class HomePage {

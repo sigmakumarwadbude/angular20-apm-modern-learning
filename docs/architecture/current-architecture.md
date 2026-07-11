@@ -1,8 +1,8 @@
 # Current Architecture Design
 
-This document details the active technical state of the **Acme Product Management (APM) Modern Learning** application, built using Angular 20.
+This document details the active technical state of the **Acme Product Management (APM) Modern Learning** application, built using Angular 22.
 
-![Angular 20 APM Modern Learning Enterprise Architecture Diagram](../images/current_architecture_diagram.png)
+![Angular 22 APM Modern Learning Enterprise Architecture Diagram](../images/current_architecture_diagram.png)
 
 ---
 

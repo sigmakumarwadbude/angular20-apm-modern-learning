@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-product-detail',
   standalone: true,
   imports: [CommonModule],
-  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './product-detail.component.html',
 })
 export class ProductDetailComponent implements OnInit {

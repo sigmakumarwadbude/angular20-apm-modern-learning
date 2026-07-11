@@ -10,7 +10,6 @@ import { ConvertToSpacesPipe } from '../../../../shared/pipes/convert-to-spaces.
   selector: 'app-product-list',
   standalone: true,
   imports: [RouterLink, CommonModule, ProductSearchComponent, StarComponent, ConvertToSpacesPipe],
-  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './product-list.component.html',
 })
 export class ProductListComponent {

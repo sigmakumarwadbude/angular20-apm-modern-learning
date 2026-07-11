@@ -13,7 +13,6 @@ import { Component, EventEmitter, Input, OnChanges, Output, ChangeDetectionStrat
       </div>
     </div>
   `,
-  changeDetection: ChangeDetectionStrategy.Eager,
   styles: [
     `
       .crop {

@@ -3,7 +3,6 @@ import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 @Component({
   selector: 'app-dashboard-card',
   imports: [],
-  changeDetection: ChangeDetectionStrategy.Eager,
   template:`
   <div
     class="

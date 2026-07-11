@@ -4,7 +4,6 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-quick-action',
   imports: [RouterLink],
-  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
   <a
     [routerLink]="route()"

@@ -1,9 +1,8 @@
-import { Component, input, output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-product-search',
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="mb-6 max-w-md">
       <label for="product-search" class="mb-2 block text-sm font-medium text-gray-700">

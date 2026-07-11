@@ -5,7 +5,6 @@ import { Navbar } from './shared/components/navbar/navbar';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Navbar],
-  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
   <div class="min-h-screen bg-slate-100">
     <app-navbar />
